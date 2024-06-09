@@ -1,10 +1,18 @@
-import React from 'react'
-import "./App.css"
+import React, { useEffect } from "react";
+import "./App.css";
+import { fetchDataFromApi } from "./utils/api";
 
 const App = () => {
-  return (
-    <div className='App'>App</div>
-  )
-}
+  useEffect(() => {
+    apiTesing();
+  }, []);
+  const apiTesing = () => {
+    fetchDataFromApi("/movie/popular").then((res) => {
+      console.log(res);
+    });
+  };
 
-export default App
+  return <div className="App">App</div>;
+};
+
+export default App;
