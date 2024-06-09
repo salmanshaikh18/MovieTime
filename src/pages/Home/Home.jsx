@@ -1,9 +1,13 @@
 import React from 'react'
 import "./homeStyle.scss"
+import HeroBanner from './HeroBanner'
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='homePage'>
+        <HeroBanner />
+    </div>
   )
 }
 
