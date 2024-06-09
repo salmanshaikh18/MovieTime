@@ -9,6 +9,8 @@ import Details from "./pages/Details/Details";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import Explore from "./pages/Explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
 
@@ -30,6 +32,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
@@ -37,6 +40,7 @@ const App = () => {
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
