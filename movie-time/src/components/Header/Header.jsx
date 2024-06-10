@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/images/movix-logo.svg";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
+// import "./header.css"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,9 +15,42 @@ const Header = () => {
   };
   const openMobileMenu = () => {};
   const searchQueryHandler = () => {};
+
+  // header scroll functionality
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
+  const headerStyle = {
+    // transition: 'top 0.3s ease-in-out',
+    top: visible ? '0' : '-100px', // Adjust this value according to your header height
+    backdropFilter: visible ? 'none' : 'blur(5px)',
+    opacity: visible ? '1' : '0.5',
+    backgroundColor: "rgba(0, 8, 26, 0.5)", // Adjust opacity as needed
+  };
+
+
   return (
     <>
-      <header className="h-[60px] bg-black flex flex-col z-10 justify-center fixed top-0 left-0 w-screen">
+      <header
+      style={headerStyle}
+        // style={{
+        //   backgroundColor: "rgba(0, 8, 26, 0.5)", // Adjust opacity as needed
+        //   display: isHeaderVisible ? "block" : "none",
+        //   backdropFilter: isScrolledUp ? "blur(5px)" : "none", // Add blur conditionally
+        // }}
+        className={` h-[60px] transition-all ease-in-out duration-500 delay-150 flex flex-col z-10 justify-center fixed top-0 left-0 w-screen`}
+      >
         <nav className="flex justify-between items-center lg:px-28 md:px-20 py-2 px-4 ">
           <div className="imgContainer">
             <img
@@ -61,7 +95,10 @@ const Header = () => {
                 onKeyUp={searchQueryHandler}
                 className="h-[40px] w-[100%] border-none outline-none text-md sm:text-lg"
               />
-              <VscChromeClose className="text-xl cursor-pointer" onClick={() => setShowSearch(false)} />
+              <VscChromeClose
+                className="text-xl cursor-pointer"
+                onClick={() => setShowSearch(false)}
+              />
             </div>
           </div>
         )}
