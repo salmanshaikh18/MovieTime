@@ -52,14 +52,14 @@ const Header = () => {
       </header>
       <>
         {showSearch && (
-          <div className="searchBar h-[60px] bg-white text-black absolute top-[60px] z-50 w-screen px-2 flex justify-center flex-col">
+          <div className="searchBar h-[60px] animate-mobileMenu bg-white text-black absolute top-[60px] z-50 w-screen px-2 flex justify-center flex-col">
             <div className="searchInput flex justify-between items-center lg:px-28 md:px-20 py-2 px-4">
               <input
                 type="text"
                 placeholder="Search for a movie or tv show...."
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyUp={searchQueryHandler}
-                className="h-[40px] w-[100%] border-none outline-none text-lg"
+                className="h-[40px] w-[100%] border-none outline-none text-md sm:text-lg"
               />
               <VscChromeClose className="text-xl cursor-pointer" onClick={() => setShowSearch(false)} />
             </div>
