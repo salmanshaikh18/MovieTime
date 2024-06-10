@@ -8,7 +8,7 @@ const Header = () => {
   const openSearch = () => {};
   return (
     <header className="h-[60px] bg-black flex flex-col justify-center">
-      <nav className="flex justify-between items-center px-28 py-2">
+      <nav className="flex justify-between items-center lg:px-28 md:px-20 py-2 px-4 ">
         <div className="imgContainer">
           <img src={Logo} className="h-12 cursor-pointer" onClick={() => navigate("/")} />
         </div>
