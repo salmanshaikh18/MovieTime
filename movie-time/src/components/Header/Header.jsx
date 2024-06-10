@@ -51,7 +51,7 @@ const Header = () => {
         // }}
         className={` h-[60px] transition-all ease-in-out duration-500 delay-150 flex flex-col z-10 justify-center fixed top-0 left-0 w-screen`}
       >
-        <nav className="flex justify-between items-center lg:px-28 md:px-20 py-2 px-4 ">
+        <nav className="flex justify-between items-center lg:px-28 md:px-20 py-2 px-8 ">
           <div className="imgContainer">
             <img
               src={Logo}
