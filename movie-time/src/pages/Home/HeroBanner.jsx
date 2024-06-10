@@ -1,17 +1,34 @@
 import React from "react";
 import Img from "../../components/LazyLoadImage/Img";
-import poster from "../../assets/images/poster.png"
+import poster from "../../assets/images/poster.png";
 
 const HeroBanner = () => {
   return (
-    <div className="HeroBanner relative w-screen h-[450px] md:h-[700px] bg-[#04152d] flex flex-col items-center">
-        <div className="backdropImage absolute h-full w-full top-0 left-0 opacity-[0.5] overflow-hidden">
-            <Img className='h-full w-full bg-cover bg-center' src={poster}/>
+    <div className="HeroBanner relative w-full h-[450px] md:h-[700px] bg-[#04152d] flex flex-col items-center">
+      <div className="backdropImage absolute h-full w-full top-0 left-0 opacity-[0.5] overflow-hidden">
+        <Img className="h-full w-full bg-cover bg-center" src={poster} />
+      </div>
+      <div
+        className="opacityLayer w-full h-[250px] absolute bottom-0 left-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(4, 21, 45, 0), #04152d 79.17%)",
+        }}
+      ></div>
+      <div className="heroBannerContent sm:mt-12 flex flex-col items-center text-center text-white relative max-w-[800px] justify-center h-[100vh] leading-tight">
+        <h1 className="text-white text-[92px] font-bold">Welcome.</h1>
+        <p className="text-white text-2xl mb-4">
+          Millions of movies, TV shows and people to discover. Explore now.
+        </p>
+        <div className="flex items-center w-[70vw] justify-center px-10">
+          <input
+            className="sm:w-[90vw] sm:text-[20px] w-[60%] outline-none border-none px-0 py-[15px] rounded-l-3xl sm:px-[20px] text-black"
+            type="text"
+            placeholder="Search for a movie or tv show..."
+          />
+          <button className="sm:h-[55px] h-[50px] sm:text-lg sm:w-[250px] sm:bg-red-500 w-[80px] rounded-r-3xl" style={{ background: 'linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%)'}}>Search</button>
         </div>
-        <div className="opacityLayer w-full h-[250px] absolute bottom-0 left-0" style={{background: 'linear-gradient(to bottom, rgba(4, 21, 45, 0), #04152d 79.17%)'}}></div>
-      <h1>Welcome.</h1>
-      <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
-      <input type="text" placeholder="Search for a movie or tv show..." />
+      </div>
     </div>
   );
 };
