@@ -22,7 +22,7 @@ const HeroBanner = () => {
         </p>
         <div className="flex items-center mt-8 w-[70vw] justify-center px-2 sm:px-10">
           <input
-            className="sm:w-[90vw] sm:text-[20px] w-[70vw] outline-none border-none px-2 py-[15px] rounded-l-3xl sm:px-[20px] text-black"
+            className="sm:w-[70vw] sm:text-[20px] w-[70vw] outline-none border-none px-2 py-[15px] rounded-l-3xl sm:px-[20px] text-black"
             type="text"
             placeholder="Search for a movie or tv show..."
           />
