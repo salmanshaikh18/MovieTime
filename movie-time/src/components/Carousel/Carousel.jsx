@@ -2,7 +2,9 @@ import React from 'react'
 
 const Carousel = () => {
   return (
-    <div>Carousel</div>
+    <div>
+        <div className="skeleton w-32 h-32 opacity-50"></div>
+    </div>
   )
 }
 
