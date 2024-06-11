@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Img from "../../components/LazyLoadImage/Img";
 import poster from "../../assets/images/poster.png";
+import useFetch from "../../hooks/useFetch"
+import { useSelector } from "react-redux";
 
 const HeroBanner = () => {
+  const [background, setBackground] = useState("")
+  const {data, loading} = useFetch("/movie/upcoming")
+  const { url } = useSelector((state) => state.movie);
+  useEffect(() => {
+    const bg =
+        url.backdrop +
+        data?.results?.[Math.floor(Math.random() * 18)]?.backdrop_path;
+    setBackground(bg);
+}, [data]);
   return (
     <div className="HeroBanner relative w-full h-[450px] md:h-[700px] bg-[#04152d] flex flex-col items-center">
       <div className="backdropImage absolute h-full w-full top-0 left-0 opacity-[0.5] overflow-hidden">
-        <Img className="h-[75vh] sm:h-[700px] w-[100vw] bg-cover bg-center" src={poster} />
+        <Img className="h-[75vh] sm:h-[700px] w-[100vw] bg-cover bg-center" src={background} />
       </div>
       <div
         className="opacityLayer w-full h-[250px] absolute bottom-0 left-0"

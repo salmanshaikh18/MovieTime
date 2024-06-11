@@ -14,3 +14,4 @@ const Img = ({ src, className }) => {
 };
 
 export default Img;
+// 
