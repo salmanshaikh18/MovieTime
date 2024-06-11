@@ -11,7 +11,7 @@ const App = () => {
   const dispatch = useDispatch()
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
-      console.log(res);
+      // console.log(res);
 
       const url = {
         backdrop: res.images.secure_base_url + "original",
@@ -22,6 +22,9 @@ const App = () => {
       dispatch(getApiConfiguration(url))
     });
   };
+
+  const url = useSelector(state => state.movie)
+  console.log("state ", url)
 
   useEffect(() => {
     fetchApiConfig();

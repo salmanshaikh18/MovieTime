@@ -27,4 +27,4 @@ export const fetchDataFromApi = async (url, params) => {
   }
 };
 
-fetchDataFromApi()
+// fetchDataFromApi()
